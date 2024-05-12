@@ -35,6 +35,11 @@ public class NumberBaseball {
             String playerInputNum = inputView.getUserInput();
             playerNumList = inputView.getUserInputNumList(playerInputNum);
 
+            if (playerNumList.size() != 3) {
+                resultView.printMessageToSystemOut("❗️1부터 9까지의 숫자만 입력해주세요.");
+                continue;
+            }
+
             // 3) 정답과 플레이어의 숫자 비교
             int ball = numberComparator.compareBallCnt(answerNumList, playerNumList);
             strike = numberComparator.compareStrikeCnt(answerNumList, playerNumList);
