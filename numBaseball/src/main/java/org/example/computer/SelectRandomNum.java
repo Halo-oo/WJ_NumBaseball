@@ -1,15 +1,13 @@
 package org.example.computer;
 
 import org.example.global.util.DataValidation;
+import org.example.global.util.NumberRange;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 public class SelectRandomNum {
-    final int MAX_RANDOM_NUM_RANGE = 9;
-    final int MAX_SELECTION_NUM_LIST_SIZE = 3;
-
     final DataValidation dataValidation = new DataValidation();
 
     /**
@@ -18,7 +16,8 @@ public class SelectRandomNum {
      */
     public int getRandomNum() {
         Random random = new Random(System.nanoTime());
-        return (int)random.nextInt(MAX_RANDOM_NUM_RANGE) + 1;   // 1-9까지의 숫자 범위 제한
+        NumberRange MAX_RANDOM_NUM_RANGE = NumberRange.MAX_RANDOM_NUM_RANGE;
+        return (int)random.nextInt(MAX_RANDOM_NUM_RANGE.getValue()) + 1;   // 1-9까지의 숫자 범위 제한
     }
 
     /**
@@ -26,8 +25,9 @@ public class SelectRandomNum {
      */
     public List<Integer> getRandomNumList() {
         List<Integer> numList = new ArrayList<>();
+        NumberRange MAX_SELECTION_NUM_LIST_SIZE = NumberRange.MAX_SELECTION_NUM_LIST_SIZE;
 
-        while (numList.size() < MAX_SELECTION_NUM_LIST_SIZE) {
+        while (numList.size() < MAX_SELECTION_NUM_LIST_SIZE.getValue()) {
             int randomNum = getRandomNum();
 
             if (!dataValidation.checkDuplicateNum(numList, randomNum)) {
