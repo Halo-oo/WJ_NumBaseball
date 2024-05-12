@@ -30,7 +30,6 @@ public class NumberBaseball {
         int strike = 0;
         while (strike != 3) {
             // 2) (플레이어)_3개의 숫자 입력받기
-            //    ! (추가할 것)_사용자 입력값 중 숫자 중복 있는지 체크 + 컨벤션 체크
             resultView.printMessageForInput("공백을 기준으로 3개의 숫자를 입력해주세요.");
             String playerInputNum = inputView.getUserInput();
             playerNumList = inputView.getUserInputNumList(playerInputNum);
