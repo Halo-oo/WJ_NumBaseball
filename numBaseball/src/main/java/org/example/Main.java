@@ -1,6 +1,5 @@
 package org.example;
 
-import org.example.system.InputView;
 import org.example.computer.NumberBaseball;
 import org.example.system.ResultView;
 
@@ -12,18 +11,22 @@ public class Main {
         final String GAME_END_SIGN_STRING = "yes";
 
         final ResultView resultView = new ResultView();
-        final InputView inputView = new InputView();
 
         final NumberBaseball numberBaseball = new NumberBaseball();
 
         /* 숫자야구 */
         String gameRestartStatus = "start";
         while (!gameRestartStatus.equals(GAME_END_SIGN_STRING)) {
-            numberBaseball.numberBaseballGame();    // 숫자야구 게임 시작
+            resultView.printMessageToSystemOut("⚾️ 숫자야구 게임을 시작합니다.");
 
-            resultView.printMessageToSystemOut("⚾ 정답입니다!");
-            resultView.printMessageForInput("Game을 종료하시겠습니까? (yes / no)");
-            gameRestartStatus = inputView.getUserInput();
+            // 1) (컴퓨터)_랜덤 숫자 3개 선택
+            numberBaseball.answerNumberSelect();
+
+            // 2) 정답을 맞출 때까지 게임 진행
+            numberBaseball.playUntilCorrectAnswer();
+
+            // 3) 게임 재시작 여부 확인
+            gameRestartStatus = numberBaseball.askForPlayRestart();
         }
     }
 }

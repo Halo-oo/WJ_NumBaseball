@@ -20,16 +20,22 @@ public class NumberBaseball {
     final SelectRandomNum selectRandomNum = new SelectRandomNum();
     final NumberComparator numberComparator = new NumberComparator();
 
-    public void numberBaseballGame() throws IOException {
-        resultView.printMessageToSystemOut("⚾️ 숫자야구 게임을 시작합니다.");
-
-        // 1) (컴퓨터)_랜덤 숫자 3개 선택
+    /**
+     * (컴퓨터)_랜덤 숫자 3개 선택
+     */
+    public void answerNumberSelect() {
         answerNumList = selectRandomNum.getRandomNumList();
         logger.info("#ADMIN# 정답 숫자: {}", answerNumList);
+    }
 
+    /**
+     * 정답을 맞출 때까지 게임 진행
+     */
+    public void playUntilCorrectAnswer() throws IOException {
         int strike = 0;
+
         while (strike != 3) {
-            // 2) (플레이어)_3개의 숫자 입력받기
+            // (플레이어)_3개의 숫자 입력받기
             resultView.printMessageForInput("공백을 기준으로 3개의 숫자를 입력해주세요.");
             String playerInputNum = inputView.getUserInput();
             playerNumList = inputView.getUserInputNumList(playerInputNum);
@@ -39,13 +45,23 @@ public class NumberBaseball {
                 continue;
             }
 
-            // 3) 정답과 플레이어의 숫자 비교
+            // 정답과 플레이어의 숫자 비교
             int ball = numberComparator.compareBallCnt(answerNumList, playerNumList);
             strike = numberComparator.compareStrikeCnt(answerNumList, playerNumList);
 
-            // 4) 결과(hint) 출력
+            // 결과(hint) 출력
             String hintMessage = numberComparator.compareResultMessage(strike, ball);
             resultView.printMessageToSystemOut(hintMessage);
         }
+    }
+
+    /**
+     * 플레이어의 게임 재시작 여부 확인
+     */
+    public String askForPlayRestart() throws IOException {
+        resultView.printMessageToSystemOut("⚾ 정답입니다!");
+        resultView.printMessageForInput("Game을 종료하시겠습니까? (yes / no)");
+
+        return inputView.getUserInput();
     }
 }
