@@ -1,5 +1,7 @@
 package org.example.baseBall;
 
+import java.util.List;
+
 public class Ball {
     /* 숫자 (1-9까지의 범위) */
     int number;
@@ -8,8 +10,8 @@ public class Ball {
     int position;
 
     public Ball(int number, int position) {
-        number = this.number;
-        position = this.position;
+        this.number = number;
+        this.position = position;
     }
 
     public int getNumber() {
@@ -18,5 +20,10 @@ public class Ball {
 
     public int getPosition() {
         return position;
+    }
+
+    @Override
+    public String toString() {
+        return number + "";
     }
 }

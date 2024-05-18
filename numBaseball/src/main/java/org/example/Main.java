@@ -26,7 +26,7 @@ public class Main {
             numberBaseball.playUntilCorrectAnswer();
 
             // 3) 게임 재시작 여부 확인
-            gameRestartStatus = numberBaseball.askForPlayRestart();
+//            gameRestartStatus = numberBaseball.askForPlayRestart();
         }
     }
 }

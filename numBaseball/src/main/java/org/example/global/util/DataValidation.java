@@ -1,5 +1,7 @@
 package org.example.global.util;
 
+import org.example.baseBall.Ball;
+
 import java.util.List;
 
 public class DataValidation {
@@ -7,11 +9,11 @@ public class DataValidation {
     /**
      * 두 List 내 중복 숫자값 존재 유무 확인
      */
-    public boolean checkDuplicateNum(List<Integer> numList, int randomNum) {
-
-        if (numList.contains(randomNum)) {
-            return true;
+    public boolean checkDuplicateNum(List<Ball> numList, int number) {
+        for (Ball ball: numList) {
+            if (ball.getNumber() == number) return true;
         }
+
         return false;
     }
 

@@ -1,5 +1,6 @@
 package org.example.problemPosed;
 
+import org.example.baseBall.Ball;
 import org.example.system.InputView;
 import org.example.system.ResultView;
 import org.slf4j.Logger;
@@ -11,7 +12,7 @@ import java.util.List;
 public class NumberBaseball {
     final Logger logger = LoggerFactory.getLogger(NumberBaseball.class);
 
-    List<Integer> answerNumList;
+    List<Ball> answerNumList;
     List<Integer> playerNumList;
 
     final ResultView resultView = new ResultView();
@@ -46,12 +47,12 @@ public class NumberBaseball {
             }
 
             // 정답과 플레이어의 숫자 비교
-            int ball = numberComparator.compareBallCnt(answerNumList, playerNumList);
-            strike = numberComparator.compareStrikeCnt(answerNumList, playerNumList);
+//            int ball = numberComparator.compareBallCnt(answerNumList, playerNumList);
+//            strike = numberComparator.compareStrikeCnt(answerNumList, playerNumList);
 
             // 결과(hint) 출력
-            String hintMessage = numberComparator.compareResultMessage(strike, ball);
-            resultView.printMessageToSystemOut(hintMessage);
+//            String hintMessage = numberComparator.compareResultMessage(strike, ball);
+//            resultView.printMessageToSystemOut(hintMessage);
         }
     }
 

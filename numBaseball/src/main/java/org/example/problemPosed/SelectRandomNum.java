@@ -1,5 +1,6 @@
 package org.example.problemPosed;
 
+import org.example.baseBall.Ball;
 import org.example.global.util.DataValidation;
 import org.example.global.util.NumberRange;
 
@@ -23,15 +24,16 @@ public class SelectRandomNum {
     /**
      * 랜덤 숫자 목록(List) 저장
      */
-    public List<Integer> getRandomNumList() {
-        List<Integer> numList = new ArrayList<>();
+    public List<Ball> getRandomNumList() {
+        List<Ball> numList = new ArrayList<>();
         NumberRange MAX_SELECTION_NUM_LIST_SIZE = NumberRange.MAX_SELECTION_NUM_LIST_SIZE;
 
-        while (numList.size() < MAX_SELECTION_NUM_LIST_SIZE.getValue()) {
+        for (int i = 0; i < MAX_SELECTION_NUM_LIST_SIZE.getValue(); i++) {
+            int numPosition = i + 1;
             int randomNum = getRandomNum();
 
             if (!dataValidation.checkDuplicateNum(numList, randomNum)) {
-                numList.add(randomNum);
+                numList.add(new Ball(randomNum, numPosition));
             }
         }
         return numList;
