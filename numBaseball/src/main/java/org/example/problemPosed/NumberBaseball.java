@@ -38,12 +38,12 @@ public class NumberBaseball {
 
         while (strike != 3) {
             // (플레이어)_3개의 숫자 입력받기
-            resultView.printMessageForInput("공백을 기준으로 3개의 숫자를 입력해주세요.");
+            resultView.printMessageForInput("공백을 기준으로 3개의 숫자를 입력해주세요. [범위 : 1~9 까지]");
             String playerInputNum = inputView.getUserInput();
             playerNumList = inputView.getUserInputNumList(playerInputNum);
 
             if (playerNumList.size() != 3) {
-                resultView.printMessageToSystemOut("❗️1부터 9까지의 숫자만 입력해주세요.");
+                resultView.printMessageToSystemOut("❗️올바른 숫자 입력해주세요.");
                 continue;
             }
 
