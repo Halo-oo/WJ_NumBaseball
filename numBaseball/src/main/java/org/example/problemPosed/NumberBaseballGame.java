@@ -10,8 +10,8 @@ import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.util.List;
 
-public class NumberBaseball {
-    final Logger logger = LoggerFactory.getLogger(NumberBaseball.class);
+public class NumberBaseballGame {
+    final Logger logger = LoggerFactory.getLogger(NumberBaseballGame.class);
 
     List<Ball> answerNumList;
     List<Ball> playerNumList;

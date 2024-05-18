@@ -1,6 +1,6 @@
 package org.example;
 
-import org.example.problemPosed.NumberBaseball;
+import org.example.problemPosed.NumberBaseballGame;
 import org.example.system.ResultView;
 
 import java.io.IOException;
@@ -12,7 +12,7 @@ public class Main {
 
         final ResultView resultView = new ResultView();
 
-        final NumberBaseball numberBaseball = new NumberBaseball();
+        final NumberBaseballGame numberBaseballGame = new NumberBaseballGame();
 
         /* 숫자야구 */
         String gameRestartStatus = "start";
@@ -20,13 +20,13 @@ public class Main {
             resultView.printMessageToSystemOut("⚾️ 숫자야구 게임을 시작합니다.");
 
             // 1) (컴퓨터)_랜덤 숫자 3개 선택
-            numberBaseball.answerNumberSelect();
+            numberBaseballGame.answerNumberSelect();
 
             // 2) 정답을 맞출 때까지 게임 진행
-            numberBaseball.playUntilCorrectAnswer();
+            numberBaseballGame.playUntilCorrectAnswer();
 
             // 3) 게임 재시작 여부 확인
-            gameRestartStatus = numberBaseball.askForPlayRestart();
+            gameRestartStatus = numberBaseballGame.askForPlayRestart();
         }
     }
 }
