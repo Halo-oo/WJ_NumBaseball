@@ -5,10 +5,7 @@ import org.example.baseBall.Score;
 import org.example.global.util.DataValidation;
 import org.example.global.util.NumberRange;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Predicate;
-import java.util.stream.Collectors;
 
 public class NumberComparator {
 

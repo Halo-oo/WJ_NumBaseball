@@ -47,7 +47,7 @@ public class NumberBaseball {
                 continue;
             }
 
-            // 정답과 플레이어의 숫자 비교
+            // 정답과 플레이어의 숫자 비교하여 점수 계산
             Score score = numberComparator.getBallAndStrikeCnt(answerNumList, playerNumList);
             strike = score.getStrike();
 
