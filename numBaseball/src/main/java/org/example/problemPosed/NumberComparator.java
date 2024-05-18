@@ -1,4 +1,4 @@
-package org.example.computer;
+package org.example.problemPosed;
 
 import java.util.List;
 import java.util.function.Predicate;

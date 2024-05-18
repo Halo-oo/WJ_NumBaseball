@@ -1,4 +1,4 @@
-package org.example.computer;
+package org.example.problemPosed;
 
 import org.example.system.InputView;
 import org.example.system.ResultView;

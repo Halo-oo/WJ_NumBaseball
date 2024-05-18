@@ -1,4 +1,4 @@
-package org.example.computer;
+package org.example.problemPosed;
 
 import org.example.global.util.DataValidation;
 import org.example.global.util.NumberRange;

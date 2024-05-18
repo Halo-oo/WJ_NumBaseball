@@ -1,6 +1,6 @@
 package org.example;
 
-import org.example.computer.NumberBaseball;
+import org.example.problemPosed.NumberBaseball;
 import org.example.system.ResultView;
 
 import java.io.IOException;
