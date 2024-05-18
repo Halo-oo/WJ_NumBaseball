@@ -1,6 +1,7 @@
 package org.example.problemPosed;
 
 import org.example.baseBall.Ball;
+import org.example.baseBall.Score;
 import org.example.system.InputView;
 import org.example.system.ResultView;
 import org.slf4j.Logger;
@@ -47,8 +48,8 @@ public class NumberBaseball {
             }
 
             // 정답과 플레이어의 숫자 비교
-//            int ball = numberComparator.compareBallCnt(answerNumList, playerNumList);
-//            strike = numberComparator.compareStrikeCnt(answerNumList, playerNumList);
+            Score score = numberComparator.getBallAndStrikeCnt(answerNumList, playerNumList);
+            System.out.println("## 점수 확인: " + score.toString());
 
             // 결과(hint) 출력
 //            String hintMessage = numberComparator.compareResultMessage(strike, ball);

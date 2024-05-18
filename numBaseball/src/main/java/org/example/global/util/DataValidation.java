@@ -11,7 +11,9 @@ public class DataValidation {
      */
     public boolean checkDuplicateNum(List<Ball> numList, int number) {
         for (Ball ball: numList) {
-            if (ball.getNumber() == number) return true;
+            if (ball.getNumber() == number) {
+                return true;
+            }
         }
 
         return false;

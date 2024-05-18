@@ -1,7 +1,5 @@
 package org.example.baseBall;
 
-import java.util.List;
-
 public class Ball {
     /* 숫자 (1-9까지의 범위) */
     int number;

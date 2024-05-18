@@ -28,8 +28,8 @@ public class SelectRandomNum {
         List<Ball> numList = new ArrayList<>();
         NumberRange MAX_SELECTION_NUM_LIST_SIZE = NumberRange.MAX_SELECTION_NUM_LIST_SIZE;
 
-        for (int i = 0; i < MAX_SELECTION_NUM_LIST_SIZE.getValue(); i++) {
-            int numPosition = i + 1;
+        while (numList.size() < MAX_SELECTION_NUM_LIST_SIZE.getValue()) {
+            int numPosition = numList.size() + 1;
             int randomNum = getRandomNum();
 
             if (!dataValidation.checkDuplicateNum(numList, randomNum)) {
