@@ -49,11 +49,11 @@ public class NumberBaseball {
 
             // 정답과 플레이어의 숫자 비교
             Score score = numberComparator.getBallAndStrikeCnt(answerNumList, playerNumList);
-            System.out.println("## 점수 확인: " + score.toString());
+            strike = score.getStrike();
 
             // 결과(hint) 출력
-//            String hintMessage = numberComparator.compareResultMessage(strike, ball);
-//            resultView.printMessageToSystemOut(hintMessage);
+            String hintMessage = numberComparator.compareResultMessage(score);
+            resultView.printMessageToSystemOut(hintMessage);
         }
     }
 

@@ -61,9 +61,10 @@ public class NumberComparator {
      *  - 위치가 다른 경우 '볼'
      *  - 아무것도 맞지 않는 경우 '낫싱'
      */
-    public String compareResultMessage(int strikeCnt, int ballCnt) {
-        if (ballCnt == 0) return "낫싱";
+    public String compareResultMessage(Score score) {
+        int totalScore = score.getBall() + score.getStrike();
+        if (totalScore == 0) return "낫싱";
 
-        return "[" + strikeCnt + " 스트라이크] / [" + Math.abs(strikeCnt - ballCnt) + " 볼]";
+        return "[" + score.getStrike() + " 스트라이크] / [" + score.getBall() + " 볼]";
     }
 }
