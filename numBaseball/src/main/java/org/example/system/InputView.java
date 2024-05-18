@@ -1,5 +1,6 @@
 package org.example.system;
 
+import org.example.baseBall.Ball;
 import org.example.global.util.DataValidation;
 
 import java.io.BufferedReader;
@@ -23,16 +24,18 @@ public class InputView {
     }
 
     /**
-     * 입력 받은 3개의 숫자 List 조회
+     * 입력 받은 3개의 숫자를 List 로 저장
      */
-    public List<Integer> getUserInputNumList(String playerNumInput) {
-        List<Integer> playerInputNumList = new ArrayList<>();
+    public List<Ball> getUserInputNumList(String playerNumInput) {
+        List<Ball> playerInputNumList = new ArrayList<>();
+        int index = 0;
 
         for (String playerNumStr: playerNumInput.split(" ")) {
-            int playerNum  = Integer.parseInt(playerNumStr);
+            int playerNum = Integer.parseInt(playerNumStr);
 
             if (dataValidation.checkNumRange(playerNum)) {
-                playerInputNumList.add(playerNum);
+                Ball ball = new Ball(playerNum, ++index);
+                playerInputNumList.add(ball);
             }
         }
         return playerInputNumList;

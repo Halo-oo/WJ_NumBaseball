@@ -33,7 +33,8 @@ public class SelectRandomNum {
             int randomNum = getRandomNum();
 
             if (!dataValidation.checkDuplicateNum(numList, randomNum)) {
-                numList.add(new Ball(randomNum, numPosition));
+                Ball ball = new Ball(randomNum, numPosition);
+                numList.add(ball);
             }
         }
         return numList;

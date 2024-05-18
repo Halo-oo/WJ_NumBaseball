@@ -13,7 +13,7 @@ public class NumberBaseball {
     final Logger logger = LoggerFactory.getLogger(NumberBaseball.class);
 
     List<Ball> answerNumList;
-    List<Integer> playerNumList;
+    List<Ball> playerNumList;
 
     final ResultView resultView = new ResultView();
     final InputView inputView = new InputView();
