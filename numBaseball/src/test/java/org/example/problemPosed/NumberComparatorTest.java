@@ -6,8 +6,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import javax.swing.*;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,38 +16,53 @@ class NumberComparatorTest {
 
     private NumberComparator numberComparator;
 
+    private List<Ball> answerNumList;
+    private List<Ball> playerNumList;
+
     @BeforeEach
     public void setUp() {
         numberComparator = new NumberComparator();
+
+        // given
+        answerNumList = new ArrayList<>();
+        playerNumList = new ArrayList<>();
     }
 
-    @DisplayName("Strike 또는 Ball의 개수 불일치")
+    @DisplayName("Strike/Ball 개수 불일치")
     @Test
-    void getBallAndStrikeCnt() {
-        // given
-        List<Ball> answerNumList = new ArrayList<>();
-        List<Ball> playerNumList = new ArrayList<>();
-
+    void testGetBallAndStrikeCnt() {
         // when
         // Strike : 1 - Ball : 2 세팅
         answerNumList.add(new Ball(1, 1));
         answerNumList.add(new Ball(2, 2));
         answerNumList.add(new Ball(3, 3));
+
         playerNumList.add(new Ball(1, 1));
         playerNumList.add(new Ball(3, 2));
         playerNumList.add(new Ball(2, 3));
         Score score = numberComparator.getBallAndStrikeCnt(answerNumList, playerNumList);
 
         // then
-        assertEquals(1, score.getStrike(), "스트라이크 개수 불일치");
-        assertEquals(2, score.getBall(), "볼 개수 불일치");
+        assertEquals(1, score.getStrike(), "Strike 개수 불일치 - Strike는 숫자와 위치 모두가 동일 해야함");
+        assertEquals(2, score.getBall(), "Ball 개수 불일치");
     }
 
+    @DisplayName("정답과 아무것도 맞는 숫자가 없는 '낫싱' 경우 TEST")
     @Test
-    void compareStrike() {
-    }
+    void testGetBallAndStrikeCntCaseNothing() {
+        // when
+        // Strike : 0 - Ball : 0 세팅
+        answerNumList.add(new Ball(1, 1));
+        answerNumList.add(new Ball(2, 2));
+        answerNumList.add(new Ball(3, 3));
 
-    @Test
-    void compareResultMessage() {
+        playerNumList.add(new Ball(4, 1));
+        playerNumList.add(new Ball(5, 2));
+        playerNumList.add(new Ball(6, 3));
+        Score score = numberComparator.getBallAndStrikeCnt(answerNumList, playerNumList);
+
+        // then
+        assertEquals(0, score.getStrike(), "[case. 낫싱] Strike 개수 불일치 - Strike는 숫자와 위치 모두가 동일 해야함");
+        assertEquals(0, score.getBall(), "[case. 낫싱] Ball 개수 불일치");
     }
 }
