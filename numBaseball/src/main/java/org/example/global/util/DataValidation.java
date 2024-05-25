@@ -7,7 +7,7 @@ import java.util.List;
 public class DataValidation {
 
     /**
-     * 두 List 내 중복 숫자값 존재 유무 확인
+     * List 내 중복 숫자값 존재 유무 확인
      */
     public boolean checkDuplicateNum(List<Ball> numList, int number) {
         for (Ball ball: numList) {
