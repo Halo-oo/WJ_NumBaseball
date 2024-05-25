@@ -13,14 +13,12 @@ import static org.junit.jupiter.api.Assertions.*;
 @DisplayName("선택한 숫자에 대한 중복/범위 validation TEST")
 class DataValidationTest {
     private DataValidation dataValidation;
-    private NumberRange MIN_RANDOM_NUM_RANGE;
-    private NumberRange MAX_RANDOM_NUM_RANGE;
+    private int number;
 
     @BeforeEach
     public void setUp() {
         dataValidation = new DataValidation();
-        MIN_RANDOM_NUM_RANGE = NumberRange.MIN_RANDOM_NUM_RANGE;
-        MAX_RANDOM_NUM_RANGE = NumberRange.MAX_RANDOM_NUM_RANGE;
+        number = 0;
     }
 
     @DisplayName("List 내 중복 숫자 존재")
@@ -28,7 +26,6 @@ class DataValidationTest {
     void checkDuplicateNum_caseTrue() {
         // given
         List<Ball> numList = new ArrayList<>();
-        int number = 0;
 
         // when
         numList.add(new Ball(1, 1));
@@ -45,7 +42,6 @@ class DataValidationTest {
     void checkDuplicateNum_caseFalse() {
         // given
         List<Ball> numList = new ArrayList<>();
-        int number = 0;
 
         // when
         numList.add(new Ball(1, 1));
@@ -57,8 +53,23 @@ class DataValidationTest {
         assertFalse(dataValidation.checkDuplicateNum(numList, number), "List 내 중복 숫자 미존재");
     }
 
-    @DisplayName("")
+    @DisplayName("숫자가 MIN(1) ~ MAX(9) 범위 내 존재")
     @Test
-    void checkNumRange() {
+    void checkNumRange_caseTrue() {
+        // when
+        number = 6;
+
+        // then
+        assertTrue(dataValidation.checkNumRange(number), "숫자가 MIN~MAX 범위 내 존재");
+    }
+
+    @DisplayName("숫자가 MIN(1) ~ MAX(9) 범위를 벗어남")
+    @Test
+    void checkNumRange_caseFalse() {
+        // when
+        number = 0;
+
+        // then
+        assertFalse(dataValidation.checkNumRange(number), "숫자가 MIN~MAX 범위를 벗어남");
     }
 }
